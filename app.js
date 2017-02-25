@@ -1,9 +1,17 @@
 var express = require('express');
+var path = require('path');
+var app = express();
+/** Creating static folder **/
+
+var staticFolder = path.join(__dirname,'Webcontent');
+var expressStaticFolder = express.static(staticFolder);
+app.use(expressStaticFolder);
+
 /* body parse for POST request acting as a middle wear */
 var bodyParser  = require("body-parser");
 /* Separating  all the router in to a different JS file*/
 var router = require('./router.js');
-var app = express();
+
 
 /* support encoded bodies */
 app.use(bodyParser.urlencoded({ extended: false }));
