@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Title of the document</title>	
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<h1>Express JS</h1>
+				<section>
+					<input type="button" id="postBtn" class="primary-btn" value="POST DATA"></input>
+				</section>
+			</div>			
+		</div>		
+	</div>
+	<script src="bower_components/jquery/dist/jquery.js"></script> 
+	<script>
+		$(document).ready(function(){			
+			$("#postBtn").off("click").on("click",function(ev){
+				ev.preventDefault();
+				var user="S9RUDH";
+          		var pass="Rudra123#";
+		        $.post("http://localhost:3000/router/login",{user: user,password: pass}, function(data){
+		            if(data){
+		               // alert(data['en_US']);
+		            }
+		        });
+			});
+		});
+	</script>
+</body>
+</html>
